@@ -1,0 +1,51 @@
+$color-accent-01: rgb(240, 66, 95);
+$color-accent-light-01: rgb(255, 192, 203);
+$color-primary-01: rgb(0, 0, 0);
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn{
+    background-color: $color-accent-light-01;
+    box-shadow: 0 4px 8px rgba($color: $color-primary-01, $alpha: 0.3);
+    color: $color-primary-01;
+    font-family: sans-serif;
+    text-decoration: none;
+    font-size: 10px;
+    border-radius: 5px;
+    padding: 15px 30px;
+    position: relative;
+    overflow: hidden;
+
+    & span {
+        position: relative;
+        z-index: 1;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        background-color: $color-accent-01;
+        border-radius: 50%; 
+        width: 0;
+        height: 0;
+        top: var(--yPos);
+        left: var(--xPos);
+        transform: translate(-50%, -50%);
+        transition: width 0.5s, height 0.5s;
+    }
+    
+    &:hover::before {        
+        width: 300px;
+        height: 300px;
+     }
+}
